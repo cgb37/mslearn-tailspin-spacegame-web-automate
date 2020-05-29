@@ -35,8 +35,8 @@ resource "random_integer" "app_service_name_suffix" {
 }
 
 resource "azurerm_resource_group" "spacegame" {
-  name     = "var.resource_group_name"
-  location = "var.resource_group_location"
+  name     = "${var.resource_group_name}"
+  location = "${var.resource_group_location}"
 }
 
 resource "azurerm_app_service_plan" "spacegame" {
@@ -53,7 +53,7 @@ resource "azurerm_app_service_plan" "spacegame" {
 }
 
 resource "azurerm_app_service" "spacegame_dev" {
-  name                = "tailspin-space-game-web-dev-8163"
+  name                = "${var.app_service_name_prefix}-dev-random_integer.app_service_name_suffix.result"
   location            = "azurerm_resource_group.spacegame.location"
   resource_group_name = "azurerm_resource_group.spacegame.name"
   app_service_plan_id = "azurerm_app_service_plan.spacegame.id"
