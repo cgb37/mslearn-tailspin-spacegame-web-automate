@@ -53,7 +53,7 @@ resource "azurerm_app_service_plan" "spacegame" {
 }
 
 resource "azurerm_app_service" "spacegame_dev" {
-  name                = "tailspin-space-game-web-dev.app_service_name_suffix.result"
+  name                = "tailspin-space-game-web-dev-8163"
   location            = "azurerm_resource_group.spacegame.location"
   resource_group_name = "azurerm_resource_group.spacegame.name"
   app_service_plan_id = "azurerm_app_service_plan.spacegame.id"
