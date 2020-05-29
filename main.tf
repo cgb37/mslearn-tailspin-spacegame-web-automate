@@ -11,7 +11,7 @@ provider "azurerm" {
 }
 
 variable "resource_group_name" {
-  default = "uml-game-rg"
+  default = "r-g-rg"
   description = "The name of the resource group"
 }
 
@@ -20,12 +20,12 @@ variable "resource_group_location" {
 }
 
 variable "app_service_plan_name" {
-  default = "uml-game-asp"
+  default = "r-g-asp"
   description = "The name of the app service plan"
 }
 
 variable "app_service_name_prefix" {
-  default = "uml-game-web"
+  default = "r-g-web"
   description = "The beginning part of your App Service host name"
 }
 
@@ -53,7 +53,7 @@ resource "azurerm_app_service_plan" "spacegame" {
 }
 
 resource "azurerm_app_service" "spacegame_dev" {
-  name                = "${var.app_service_name_prefix}-dev-random_integer.app_service_name_suffix.result"
+  name                = "r-g-web-dev-random_integer.app_service_name_suffix.result"
   location            = "azurerm_resource_group.spacegame.location"
   resource_group_name = "azurerm_resource_group.spacegame.name"
   app_service_plan_id = "azurerm_app_service_plan.spacegame.id"
